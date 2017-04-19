@@ -59,6 +59,7 @@ def locate_child_node(root, key):
                 return child
 
 def parse_files_from_list(list):
+    flag = True
     for child in list:
         #  try: child.attrib['file']:
         try:
@@ -81,8 +82,8 @@ def parse_files_from_list(list):
         file_path = "Profiles/Linux/OS Firmware/" + file_name
         if not os.path.exists(file_path):
             print("%s \x1b[1;31;40m[missed]\x1b[0m" % (file_path))
-            return False
-    return True
+            flag = False
+    return flag
 
 def main():
     #  open the ucl2.xml
